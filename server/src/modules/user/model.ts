@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
-import { TUser, TUserName } from './user.interface';
+import { TUser, TUserName } from './interface';
+import { providers } from './constants';
 
 const userNameSubSchema = new Schema<TUserName>(
   {
@@ -13,6 +14,7 @@ const userSchema = new Schema<TUser>(
   {
     name: { type: userNameSubSchema, required: true },
     email: { type: String, required: true, unique: true },
+    provider: { type: String, enum: providers, default: 'CREDENTIALS' },
     password: { type: String, required: true },
     bio: { type: String, default: '' },
     image: { type: String, default: '' },
@@ -20,4 +22,4 @@ const userSchema = new Schema<TUser>(
   { timestamps: true }
 );
 
-export const UserModel = model('user', userSchema);
+export const User = model('user', userSchema);
