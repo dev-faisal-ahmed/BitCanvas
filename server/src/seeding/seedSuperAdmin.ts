@@ -15,7 +15,7 @@ const seedSuperAdmin = async () => {
     const user = await User.findOne({ role: 'SUPER_ADMIN' });
     if (user) throw new Error('SuperAdmin Already Exist');
 
-    const hashedPassword = await bcrypt.hash(SUPER_ADMIN_EMAIL, BCRYPT_SALT);
+    const hashedPassword = await bcrypt.hash(SUPER_ADMIN_PASS, BCRYPT_SALT);
     const superAdmin = await User.create({
       name: {
         firstName: 'Faisal',

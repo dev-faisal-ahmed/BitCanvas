@@ -1,10 +1,10 @@
 import jwt from 'jsonwebtoken';
-import { ACCESS_TOKEN_SECRET } from '../app/config';
-import { TRole } from '../modules/user/interface';
 import { User } from '../modules/user/model';
+import { TRole } from '../modules/user/interface';
 import { AppError } from '../utils';
 import { catchAsync } from './catchAsync';
 import { JwtPayload } from 'jsonwebtoken';
+import { ACCESS_TOKEN_SECRET } from '../app/config';
 
 const BEARER = 'bearer';
 
@@ -30,6 +30,7 @@ export const authGuard = (...requiredRoles: TRole[]) => {
     if (!requiredRoles.includes(user.role))
       throw new AppError('Unauthorized access', 401);
 
+    req.user = user;
     next();
   });
 };
