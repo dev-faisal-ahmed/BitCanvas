@@ -3,4 +3,4 @@ import { authController } from './controllers';
 
 export const authRouter = Router();
 
-authRouter.post('/', authController.register);
+authRouter.post('/register', authController.register);
