@@ -8,4 +8,5 @@ export const PORT = process.env.PORT || 5000;
 export const MONGO_URI = process.env.MONGO_URI;
 export const BCRYPT_SALT = Number(process.env.BCRYPT_SALT_ROUND);
 export const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
-export const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET;
+export const SUPER_ADMIN_EMAIL = process.env.SUPER_ADMIN_EMAIL;
+export const SUPER_ADMIN_PASS = process.env.SUPER_ADMIN_PASS;
