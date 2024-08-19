@@ -12,3 +12,15 @@ export const addArticleSchema = z.object({
     `Status has to be ${articleStatuses}`
   ).optional(),
 });
+
+export const updateArticleSchema = z.object({
+  title: z
+    .string({ required_error: 'Title is required' })
+    .min(1, { message: 'Title is too short' })
+    .optional(),
+  content: z.string({ required_error: 'Content is required' }).optional(),
+  status: enumGenerator(
+    articleStatuses,
+    `Status has to be ${articleStatuses}`
+  ).optional(),
+});

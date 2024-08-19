@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 
-export type TArticleStatus = 'PUBLISHED' | 'DRAFT';
+export type TArticleStatus = 'PUBLISHED' | 'UNPUBLISHED' | 'DRAFT';
 export type TArticle = {
   _id: Schema.Types.ObjectId;
   authorId: Schema.Types.ObjectId;

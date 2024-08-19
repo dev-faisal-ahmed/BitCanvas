@@ -8,6 +8,7 @@ export const addArticle = catchAsync(async (req, res) => {
   // validation
   const payload = await addArticleSchema.parseAsync(req.body);
   const { _id } = req.user;
+  console.log(_id);
 
   const article = await Article.create({ ...payload, authorId: _id });
   if (!article) throw new AppError('Failed to create article', 400);
